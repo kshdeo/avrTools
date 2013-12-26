@@ -13,6 +13,9 @@
     NSArray *baudArray;
     NSArray *frequencyArray;
     BOOL up;
+    NSInteger baudI;
+    double baudF;
+    BOOL uartDoubleSpeed;
 }
 
 
@@ -24,6 +27,10 @@
 @property (strong, nonatomic) IBOutlet UITextView *outputView;
 @property (strong, nonatomic) IBOutlet UIButton *moreButton;
 @property (strong, nonatomic) IBOutlet UIImageView *backgroundImage;
+@property (strong, nonatomic) IBOutlet UISwitch *rxEnable;
+@property (strong, nonatomic) IBOutlet UISwitch *txEnable;
+@property (strong, nonatomic) IBOutlet UISwitch *rxInterrupt;
+@property (strong, nonatomic) IBOutlet UISwitch *txInterrupt;
 
 
 - (IBAction)moreButtonPressed:(id)sender;

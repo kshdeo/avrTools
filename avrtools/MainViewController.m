@@ -24,6 +24,7 @@
     [super viewDidLoad];
     
     up=TRUE;
+    uartDoubleSpeed=FALSE;
     
     self.clockTextBox.delegate=self;
     self.baudRateTextBox.delegate=self;
@@ -104,6 +105,7 @@
 
 -(void)updateConfigs
 {
+    uartDoubleSpeed=FALSE;
     int stepSize =1;
     
     float newStep = roundf((self.baudRateSlider.value) / stepSize);
@@ -114,11 +116,11 @@
     newStep = roundf((self.clockFrequencySlider.value) / stepSize);
     self.clockFrequencySlider.value = newStep * stepSize;
     val = self.clockFrequencySlider.value;
-    self.clockTextBox.text=[NSString stringWithFormat:@"%3f",[[frequencyArray objectAtIndex:val] floatValue]];
+    self.clockTextBox.text=[NSString stringWithFormat:@"%2.4f",[[frequencyArray objectAtIndex:val] floatValue]];
     
     
-    double baudF = [self.clockTextBox.text floatValue]*1000000/(16*[self.baudRateTextBox.text floatValue]) - 1;
-    NSInteger baudI = [self.clockTextBox.text floatValue]*1000000/(16*[self.baudRateTextBox.text floatValue]) - 1;
+    baudF = [self.clockTextBox.text floatValue]*1000000/(16*[self.baudRateTextBox.text floatValue]) - 1;
+    baudI = [self.clockTextBox.text floatValue]*1000000/(16*[self.baudRateTextBox.text floatValue]) - 1;
     
     if (baudF-baudI>=0.5)
     {
@@ -132,7 +134,25 @@
 
     if (error>20 || error<-20)
     {
-        self.baudRateTextBox.textColor=[UIColor redColor];
+        uartDoubleSpeed=TRUE;
+        
+        baudF = [self.clockTextBox.text floatValue]*1000000/(8*[self.baudRateTextBox.text floatValue]) - 1;
+        baudI = [self.clockTextBox.text floatValue]*1000000/(8*[self.baudRateTextBox.text floatValue]) - 1;
+        
+        if (baudF-baudI>=0.5)
+        {
+            baudI++;
+            baudF=baudF+1;
+        }
+        
+        actual = [self.clockTextBox.text floatValue]*1000000/(8*(baudI+1));
+        target = [self.baudRateTextBox.text floatValue];
+        error =100*(actual/target-1);
+        
+        if (error>20 || error<-20)
+        {
+            self.baudRateTextBox.textColor=[UIColor redColor];
+        }
     }
     else
     {
@@ -140,15 +160,126 @@
     }
     
     self.errorLabel.text = [NSString stringWithFormat:@"%2.1f%%",error];
+    
+    
+#define INIT_BEGIN @"void uart_init(void)\n{\n"
+#define LINE1 @"  UBRR0H=%d;\n"
+#define LINE2 @"  UBRR0L=%d;\n\n"
+#define LINE3 @"  UCSR0A |= (_BV(U2X0));\n\n"
+#define LINE3A @"  UCSR0A &= ~(_BV(U2X0));\n\n"
 
-    NSLog(@"actual = %3f,  target = %3f, error = %3f",actual,target,error);
+#define LINE4 @"  UCSR0B |= "
+#define LINE4A @"  UCSR0B &= ~( "
+
+#define LINE5 @"  UCSR0C = _BV(UCSZ00) | _BV(UCSZ01);\n"
+#define INIT_END @"}"
+    
+    NSString *outputText = INIT_BEGIN;
+    if (uartDoubleSpeed)
+    {
+        outputText = [outputText stringByAppendingString:LINE3];
+    }
+    else
+    {
+        outputText = [outputText stringByAppendingString:LINE3A];
+    }
+    
+    outputText = [outputText stringByAppendingFormat:LINE1,baudI/255];
+    outputText = [outputText stringByAppendingFormat:LINE2,baudI%255];
+    
+    outputText = [outputText stringByAppendingString:LINE4];
+
+    if (self.rxEnable.isOn)
+    {
+        outputText = [outputText stringByAppendingString:@"_BV(RXEN0) "];
+    }
+    if (self.txEnable.isOn)
+    {
+        outputText = [outputText stringByAppendingString:@"| _BV(TXEN0) "];
+    }
+    if (self.rxInterrupt.isOn)
+    {
+        outputText = [outputText stringByAppendingString:@"| _BV(RXCIE0) "];
+    }
+    if (self.txInterrupt.isOn)
+    {
+        outputText = [outputText stringByAppendingString:@"| _BV(TXCIE0) "];
+    }
+    outputText = [outputText stringByAppendingString:@";\n\n"];
+    
+    
+    BOOL already = FALSE;
+    if (!self.rxEnable.isOn)
+    {
+        outputText = [outputText stringByAppendingString:LINE4A];
+        outputText = [outputText stringByAppendingString:@"_BV(RXEN0) "];
+        already=TRUE;
+    }
+    if (!self.txEnable.isOn)
+    {
+        if (already) outputText = [outputText stringByAppendingString:@"| _BV(TXEN0) "];
+        else
+        {
+            outputText = [outputText stringByAppendingString:LINE4A];
+            outputText = [outputText stringByAppendingString:@"_BV(TXEN0) "];
+        }
+        already = TRUE;
+    }
+    if (!self.rxInterrupt.isOn)
+    {
+        if (already) outputText = [outputText stringByAppendingString:@"| _BV(RXCIE0) "];
+        else
+        {
+            outputText = [outputText stringByAppendingString:LINE4A];
+            outputText = [outputText stringByAppendingString:@"_BV(RXCIE0) "];
+        }
+        already = TRUE;
+    }
+    if (!self.txInterrupt.isOn)
+    {
+        if (already) outputText = [outputText stringByAppendingString:@"| _BV(TXCIE0) "];
+        else
+        {
+            outputText = [outputText stringByAppendingString:LINE4A];
+            outputText = [outputText stringByAppendingString:@"_BV(TXCIE0) "];
+        }
+        already=TRUE;
+    }
+    if (already) outputText = [outputText stringByAppendingString:@");\n\n"];
+ 
+    
+    
+    
+    outputText = [outputText stringByAppendingString:LINE5];
+    outputText = [outputText stringByAppendingString:INIT_END];
+    
+    self.outputView.text = outputText;
+
+    
+//    NSLog(@"actual = %3f,  target = %3f, error = %3f",actual,target,error);
 }
 
 
 
 - (IBAction)rxEnabled:(id)sender
 {
+    [self updateConfigs];
     
+    /*
+    
+        UBRR0H = 0;
+        UBRR0L = 207;
+        UCSR0A |= (_BV(U2X0));
+        
+        UCSR0C = _BV(UCSZ00) | _BV(UCSZ01); // Use 8 bit character sizes
+        UCSR0B |= _BV(TXEN0) | _BV(RXEN0) | _BV(RXCIE0); // Enable TX and RX
+    }
+    ISR(USART0_RX_vect)
+    {
+            //Receive interrupt routine
+    }
+     */
+
 }
 
 

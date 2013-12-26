@@ -14,6 +14,10 @@
                 <outlet property="errorLabel" destination="NT5-HO-qZ2" id="GFG-ZG-QwK"/>
                 <outlet property="moreButton" destination="Cyr-BC-GTI" id="QT8-pX-emE"/>
                 <outlet property="outputView" destination="nav-AL-nMa" id="F8F-XZ-GEY"/>
+                <outlet property="rxEnable" destination="swQ-9C-wkb" id="8TT-KG-X8S"/>
+                <outlet property="rxInterrupt" destination="prO-p1-fR5" id="nTz-q5-1uJ"/>
+                <outlet property="txEnable" destination="3nr-wV-0Cx" id="ayv-oS-OJ2"/>
+                <outlet property="txInterrupt" destination="ni4-YB-Xxm" id="D7w-QR-lpk"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -48,7 +52,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MHz" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LYs-tK-4vf">
-                    <rect key="frame" x="235" y="82" width="36" height="21"/>
+                    <rect key="frame" x="206" y="82" width="36" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -79,6 +83,7 @@
                     <items>
                         <navigationItem title="UART config tool" id="TNz-Kh-biw">
                             <barButtonItem key="rightBarButtonItem" systemItem="action" id="1xB-2u-GLh">
+                                <color key="tintColor" red="0.067066773780000005" green="0.62123551960000001" blue="0.63529413940000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="shareButtonPressed:" destination="-1" id="Ayu-ch-Jon"/>
                                 </connections>
@@ -87,7 +92,7 @@
                     </items>
                 </navigationBar>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="14.7456" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" id="zA9-TM-fCm">
-                    <rect key="frame" x="118" y="78" width="110" height="30"/>
+                    <rect key="frame" x="118" y="78" width="83" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <textInputTraits key="textInputTraits" returnKeyType="done"/>
@@ -124,22 +129,15 @@
                     <rect key="frame" x="0.0" y="310" width="320" height="263"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                     <color key="backgroundColor" red="0.067066773781170222" green="0.62123551960564871" blue="0.63529413940000001" alpha="1" colorSpace="calibratedRGB"/>
-                    <string key="text">void uart_init(void)
-{
-    UBRR0H = 0;
-    UBRR0L = 207;
-    UCSR0A |= (_BV(U2X0)); 
-
-    UCSR0C = _BV(UCSZ00) | _BV(UCSZ01); // Use 8 bit character sizes
-    UCSR0B |= _BV(TXEN0) | _BV(RXEN0) | _BV(RXCIE0); // Enable TX and RX 
-}
-ISR(USART0_RX_vect)
-{
-    //Receive interrupt routine
+                    <string key="text">void uart_init(void){
+UBRR0H=23;
+UBRR0L=2;
+UCSR0A |= (_BV(U2X0));
+UCSR0C = _BV(UCSZ00) | _BV(UCSZ01);\n"
 }</string>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="12"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="13"/>
+                    <textInputTraits key="textInputTraits"/>
                 </textView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-0.25%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NT5-HO-qZ2">
                     <rect key="frame" x="241" y="163" width="67" height="21"/>
