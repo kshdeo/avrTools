@@ -25,6 +25,7 @@
                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="12" id="W9x-vP-1Wa">
                     <rect key="frame" x="10" y="114" width="292" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="minimumTrackTintColor" red="0.067066773780000005" green="0.62123551960000001" blue="0.63529413940000001" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
                         <action selector="clockFrequencyChanged:" destination="-1" eventType="valueChanged" id="Hke-mI-Uaq"/>
                     </connections>
@@ -37,6 +38,7 @@
                         <segment title="Synchronous"/>
                         <segment title="SPI Master"/>
                     </segments>
+                    <color key="tintColor" red="0.067066773780000005" green="0.62123551960000001" blue="0.63529413940000001" alpha="1" colorSpace="calibratedRGB"/>
                 </segmentedControl>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="System Clock" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vBh-ih-wAV">
                     <rect key="frame" x="12" y="82" width="98" height="21"/>
@@ -60,6 +62,7 @@
                         <segment title="Even Parity"/>
                         <segment title="Disabled"/>
                     </segments>
+                    <color key="tintColor" red="0.067066773780000005" green="0.62123551960000001" blue="0.63529413940000001" alpha="1" colorSpace="calibratedRGB"/>
                 </segmentedControl>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="mwL-ki-GTM">
                     <rect key="frame" x="12" y="412" width="296" height="29"/>
@@ -68,6 +71,7 @@
                         <segment title="1 Stop bit"/>
                         <segment title="2 Stop bits"/>
                     </segments>
+                    <color key="tintColor" red="0.067066773780000005" green="0.62123551960000001" blue="0.63529413940000001" alpha="1" colorSpace="calibratedRGB"/>
                 </segmentedControl>
                 <navigationBar contentMode="scaleToFill" id="pOS-rI-0NV">
                     <rect key="frame" x="0.0" y="20" width="320" height="44"/>
@@ -88,9 +92,10 @@
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <textInputTraits key="textInputTraits" returnKeyType="done"/>
                 </textField>
-                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="115200" minValue="0.0" maxValue="921000" id="duB-Wh-vto">
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="20" id="duB-Wh-vto">
                     <rect key="frame" x="10" y="195" width="292" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="minimumTrackTintColor" red="0.067066773780000005" green="0.62123551960000001" blue="0.63529413940000001" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
                         <action selector="baudRateChanged:" destination="-1" eventType="valueChanged" id="ycT-Qt-x1i"/>
                     </connections>
@@ -116,9 +121,9 @@
                     <textInputTraits key="textInputTraits" returnKeyType="done"/>
                 </textField>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" id="nav-AL-nMa">
-                    <rect key="frame" x="0.0" y="307" width="320" height="263"/>
+                    <rect key="frame" x="0.0" y="310" width="320" height="263"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
-                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <color key="backgroundColor" red="0.067066773781170222" green="0.62123551960564871" blue="0.63529413940000001" alpha="1" colorSpace="calibratedRGB"/>
                     <string key="text">void uart_init(void)
 {
     UBRR0H = 0;
@@ -132,7 +137,7 @@ ISR(USART0_RX_vect)
 {
     //Receive interrupt routine
 }</string>
-                    <color key="textColor" red="0.088756629494682285" green="0.0027825556479656741" blue="0.89644451530612246" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="12"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
@@ -144,10 +149,10 @@ ISR(USART0_RX_vect)
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Cyr-BC-GTI">
-                    <rect key="frame" x="297" y="310" width="22" height="22"/>
+                    <rect key="frame" x="290" y="314" width="26" height="26"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="9"/>
-                    <state key="normal" image="steps.png"/>
+                    <state key="normal" image="arrow.png"/>
                     <connections>
                         <action selector="moreButtonPressed:" destination="-1" eventType="touchUpInside" id="Gkp-GE-67w"/>
                     </connections>
@@ -163,6 +168,7 @@ ISR(USART0_RX_vect)
                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="swQ-9C-wkb">
                             <rect key="frame" x="16" y="31" width="51" height="31"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="onTintColor" red="0.067066773780000005" green="0.62123551960000001" blue="0.63529413940000001" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="rxEnabled:" destination="-1" eventType="valueChanged" id="Tal-Ya-GMU"/>
                             </connections>
@@ -177,6 +183,7 @@ ISR(USART0_RX_vect)
                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="prO-p1-fR5">
                             <rect key="frame" x="86" y="31" width="51" height="31"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="onTintColor" red="0.067066773780000005" green="0.62123551960000001" blue="0.63529413940000001" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="rxEnabled:" destination="-1" eventType="valueChanged" id="UBe-30-Uya"/>
                             </connections>
@@ -191,6 +198,7 @@ ISR(USART0_RX_vect)
                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="3nr-wV-0Cx">
                             <rect key="frame" x="178" y="31" width="51" height="31"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="onTintColor" red="0.067066773780000005" green="0.62123551960000001" blue="0.63529413940000001" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="rxEnabled:" destination="-1" eventType="valueChanged" id="6dm-o4-Krw"/>
                             </connections>
@@ -205,6 +213,7 @@ ISR(USART0_RX_vect)
                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="ni4-YB-Xxm">
                             <rect key="frame" x="247" y="31" width="51" height="31"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="onTintColor" red="0.067066773780000005" green="0.62123551960000001" blue="0.63529413940000001" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="rxEnabled:" destination="-1" eventType="valueChanged" id="5so-IE-nJ6"/>
                             </connections>
@@ -226,6 +235,6 @@ ISR(USART0_RX_vect)
         </view>
     </objects>
     <resources>
-        <image name="steps.png" width="44" height="46"/>
+        <image name="arrow.png" width="25" height="25"/>
     </resources>
 </document>
