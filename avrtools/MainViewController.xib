@@ -13,6 +13,7 @@
                 <outlet property="clockTextBox" destination="zA9-TM-fCm" id="OtU-ns-sJU"/>
                 <outlet property="errorLabel" destination="NT5-HO-qZ2" id="GFG-ZG-QwK"/>
                 <outlet property="moreButton" destination="Cyr-BC-GTI" id="QT8-pX-emE"/>
+                <outlet property="outputContainerView" destination="kSo-r2-mSd" id="j1K-rH-dvt"/>
                 <outlet property="outputView" destination="nav-AL-nMa" id="F8F-XZ-GEY"/>
                 <outlet property="rxEnable" destination="swQ-9C-wkb" id="8TT-KG-X8S"/>
                 <outlet property="rxInterrupt" destination="prO-p1-fR5" id="nTz-q5-1uJ"/>
@@ -27,7 +28,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="12" id="W9x-vP-1Wa">
-                    <rect key="frame" x="10" y="114" width="292" height="34"/>
+                    <rect key="frame" x="10" y="111" width="292" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="minimumTrackTintColor" red="0.067066773780000005" green="0.62123551960000001" blue="0.63529413940000001" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
@@ -35,7 +36,7 @@
                     </connections>
                 </slider>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="hfP-Yh-bPB">
-                    <rect key="frame" x="12" y="317" width="296" height="29"/>
+                    <rect key="frame" x="12" y="305" width="296" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <segments>
                         <segment title="Asynchronous"/>
@@ -45,21 +46,21 @@
                     <color key="tintColor" red="0.067066773780000005" green="0.62123551960000001" blue="0.63529413940000001" alpha="1" colorSpace="calibratedRGB"/>
                 </segmentedControl>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="System Clock" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vBh-ih-wAV">
-                    <rect key="frame" x="12" y="82" width="98" height="21"/>
+                    <rect key="frame" x="12" y="80" width="98" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MHz" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LYs-tK-4vf">
-                    <rect key="frame" x="206" y="82" width="36" height="21"/>
+                    <rect key="frame" x="206" y="80" width="36" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="JYj-bg-gSA">
-                    <rect key="frame" x="12" y="365" width="296" height="29"/>
+                    <rect key="frame" x="12" y="345" width="296" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <segments>
                         <segment title="Odd Parity"/>
@@ -69,7 +70,7 @@
                     <color key="tintColor" red="0.067066773780000005" green="0.62123551960000001" blue="0.63529413940000001" alpha="1" colorSpace="calibratedRGB"/>
                 </segmentedControl>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="mwL-ki-GTM">
-                    <rect key="frame" x="12" y="412" width="296" height="29"/>
+                    <rect key="frame" x="12" y="385" width="296" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <segments>
                         <segment title="1 Stop bit"/>
@@ -92,13 +93,13 @@
                     </items>
                 </navigationBar>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="14.7456" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" id="zA9-TM-fCm">
-                    <rect key="frame" x="118" y="78" width="83" height="30"/>
+                    <rect key="frame" x="118" y="76" width="83" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <textInputTraits key="textInputTraits" returnKeyType="done"/>
                 </textField>
                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="20" id="duB-Wh-vto">
-                    <rect key="frame" x="10" y="195" width="292" height="34"/>
+                    <rect key="frame" x="10" y="185" width="292" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="minimumTrackTintColor" red="0.067066773780000005" green="0.62123551960000001" blue="0.63529413940000001" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
@@ -106,57 +107,45 @@
                     </connections>
                 </slider>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Baud Rate" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lzd-2z-uyN">
-                    <rect key="frame" x="12" y="162" width="98" height="21"/>
+                    <rect key="frame" x="12" y="155" width="98" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="bps" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XKy-l9-n9E">
-                    <rect key="frame" x="206" y="162" width="27" height="21"/>
+                    <rect key="frame" x="206" y="155" width="27" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="115200" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" id="8xv-zo-gDn">
-                    <rect key="frame" x="117" y="158" width="84" height="30"/>
+                    <rect key="frame" x="117" y="151" width="84" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <textInputTraits key="textInputTraits" returnKeyType="done"/>
                 </textField>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" id="nav-AL-nMa">
-                    <rect key="frame" x="0.0" y="310" width="320" height="263"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
-                    <color key="backgroundColor" red="0.067066773781170222" green="0.62123551960564871" blue="0.63529413940000001" alpha="1" colorSpace="calibratedRGB"/>
-                    <string key="text">void uart_init(void){
-UBRR0H=23;
-UBRR0L=2;
-UCSR0A |= (_BV(U2X0));
-UCSR0C = _BV(UCSZ00) | _BV(UCSZ01);\n"
-}</string>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="13"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-0.25%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NT5-HO-qZ2">
-                    <rect key="frame" x="241" y="163" width="67" height="21"/>
+                    <rect key="frame" x="241" y="156" width="67" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="1" green="0.19096350670000001" blue="0.158400178" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Cyr-BC-GTI">
-                    <rect key="frame" x="290" y="314" width="26" height="26"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="developed by :" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BEr-7B-3xA">
+                    <rect key="frame" x="109" y="425" width="102" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="9"/>
-                    <state key="normal" image="arrow.png"/>
-                    <connections>
-                        <action selector="moreButtonPressed:" destination="-1" eventType="touchUpInside" id="Gkp-GE-67w"/>
-                    </connections>
-                </button>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.52467315049999996" green="0.52467315049999996" blue="0.52467315049999996" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" id="Fsy-Pg-HFP">
+                    <rect key="frame" x="29" y="443" width="260" height="31"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
                 <view contentMode="scaleToFill" id="SWY-Ye-ja1">
-                    <rect key="frame" x="0.0" y="231" width="320" height="75"/>
+                    <rect key="frame" x="0.0" y="220" width="320" height="75"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Eg2-HG-Bt2">
@@ -231,8 +220,40 @@ UCSR0C = _BV(UCSZ00) | _BV(UCSZ01);\n"
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
+        <view contentMode="scaleToFill" id="kSo-r2-mSd">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="263"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" id="nav-AL-nMa">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="263"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" red="0.067066773781170222" green="0.62123551960564871" blue="0.63529413940000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <string key="text">void uart_init(void){
+UBRR0H=23;
+UBRR0L=2;
+UCSR0A |= (_BV(U2X0));
+UCSR0C = _BV(UCSZ00) | _BV(UCSZ01);\n"
+}</string>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="13"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Cyr-BC-GTI">
+                    <rect key="frame" x="290" y="4" width="26" height="26"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                    <state key="normal" image="arrow.png"/>
+                    <connections>
+                        <action selector="moreButtonPressed:" destination="-1" eventType="touchUpInside" id="Gkp-GE-67w"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
     </objects>
     <resources>
         <image name="arrow.png" width="25" height="25"/>
+        <image name="logo.png" width="290" height="34"/>
     </resources>
 </document>

@@ -37,6 +37,9 @@
     
     UIImage *toolTipsImage = [UIImage imageNamed:@"textbox_bg.png"];
     self.backgroundImage.image = [toolTipsImage resizableImageWithCapInsets:UIEdgeInsetsMake(12.0f, 12.0f, 12.0f, 12.0f)];
+    
+    self.outputContainerView.frame=CGRectMake(0, 305, 320, 300);
+    [self.view addSubview:self.outputContainerView];
 }
 
 
@@ -69,8 +72,7 @@
     {
         [UIView animateWithDuration:0.8
                          animations:^{
-                             self.outputView.frame=CGRectMake(0, 480, 320, 300);
-                             self.moreButton.frame=CGRectMake(290, 484, 26, 26);
+                             self.outputContainerView.frame=CGRectMake(0, 480, 320, 300);
                          }];
         [self.moreButton setImage:[UIImage imageNamed:@"arrow-up.png"] forState:UIControlStateNormal];
         up=FALSE;
@@ -81,8 +83,7 @@
         
         [UIView animateWithDuration:0.8
                          animations:^{
-                             self.outputView.frame=CGRectMake(0, 310, 320, 300);
-                             self.moreButton.frame=CGRectMake(290, 314, 26, 26);
+                             self.outputContainerView.frame=CGRectMake(0, 305, 320, 300);
                          }];
         [self.moreButton setImage:[UIImage imageNamed:@"arrow.png"] forState:UIControlStateNormal];
     }
@@ -92,13 +93,11 @@
 - (IBAction)clockFrequencyChanged:(id)sender
 {
     [self updateConfigs];
-
 }
 
 
 - (IBAction)baudRateChanged:(id)sender
 {
-
     [self updateConfigs];
 }
 
@@ -187,68 +186,87 @@
     outputText = [outputText stringByAppendingFormat:LINE1,baudI/255];
     outputText = [outputText stringByAppendingFormat:LINE2,baudI%255];
     
-    outputText = [outputText stringByAppendingString:LINE4];
-
-    if (self.rxEnable.isOn)
-    {
-        outputText = [outputText stringByAppendingString:@"_BV(RXEN0) "];
-    }
-    if (self.txEnable.isOn)
-    {
-        outputText = [outputText stringByAppendingString:@"| _BV(TXEN0) "];
-    }
-    if (self.rxInterrupt.isOn)
-    {
-        outputText = [outputText stringByAppendingString:@"| _BV(RXCIE0) "];
-    }
-    if (self.txInterrupt.isOn)
-    {
-        outputText = [outputText stringByAppendingString:@"| _BV(TXCIE0) "];
-    }
-    outputText = [outputText stringByAppendingString:@";\n\n"];
-    
     
     BOOL already = FALSE;
-    if (!self.rxEnable.isOn)
+    if (self.rxEnable.isOn)
     {
-        outputText = [outputText stringByAppendingString:LINE4A];
+        outputText = [outputText stringByAppendingString:LINE4];
         outputText = [outputText stringByAppendingString:@"_BV(RXEN0) "];
         already=TRUE;
     }
-    if (!self.txEnable.isOn)
+    if (self.txEnable.isOn)
     {
         if (already) outputText = [outputText stringByAppendingString:@"| _BV(TXEN0) "];
         else
         {
-            outputText = [outputText stringByAppendingString:LINE4A];
+            outputText = [outputText stringByAppendingString:LINE4];
             outputText = [outputText stringByAppendingString:@"_BV(TXEN0) "];
         }
-        already = TRUE;
+        already=TRUE;
     }
-    if (!self.rxInterrupt.isOn)
+    if (self.rxInterrupt.isOn)
     {
         if (already) outputText = [outputText stringByAppendingString:@"| _BV(RXCIE0) "];
         else
         {
-            outputText = [outputText stringByAppendingString:LINE4A];
+            outputText = [outputText stringByAppendingString:LINE4];
             outputText = [outputText stringByAppendingString:@"_BV(RXCIE0) "];
         }
-        already = TRUE;
+        already=TRUE;
     }
-    if (!self.txInterrupt.isOn)
+    if (self.txInterrupt.isOn)
     {
         if (already) outputText = [outputText stringByAppendingString:@"| _BV(TXCIE0) "];
         else
         {
-            outputText = [outputText stringByAppendingString:LINE4A];
+            outputText = [outputText stringByAppendingString:LINE4];
             outputText = [outputText stringByAppendingString:@"_BV(TXCIE0) "];
         }
         already=TRUE;
     }
-    if (already) outputText = [outputText stringByAppendingString:@");\n\n"];
+    if (already) outputText = [outputText stringByAppendingString:@";\n\n"];
+    
+    
+    
+//    already = FALSE;
+//    if (!self.rxEnable.isOn)
+//    {
+//        outputText = [outputText stringByAppendingString:LINE4A];
+//        outputText = [outputText stringByAppendingString:@"_BV(RXEN0) "];
+//        already=TRUE;
+//    }
+//    if (!self.txEnable.isOn)
+//    {
+//        if (already) outputText = [outputText stringByAppendingString:@"| _BV(TXEN0) "];
+//        else
+//        {
+//            outputText = [outputText stringByAppendingString:LINE4A];
+//            outputText = [outputText stringByAppendingString:@"_BV(TXEN0) "];
+//        }
+//        already = TRUE;
+//    }
+//    if (!self.rxInterrupt.isOn)
+//    {
+//        if (already) outputText = [outputText stringByAppendingString:@"| _BV(RXCIE0) "];
+//        else
+//        {
+//            outputText = [outputText stringByAppendingString:LINE4A];
+//            outputText = [outputText stringByAppendingString:@"_BV(RXCIE0) "];
+//        }
+//        already = TRUE;
+//    }
+//    if (!self.txInterrupt.isOn)
+//    {
+//        if (already) outputText = [outputText stringByAppendingString:@"| _BV(TXCIE0) "];
+//        else
+//        {
+//            outputText = [outputText stringByAppendingString:LINE4A];
+//            outputText = [outputText stringByAppendingString:@"_BV(TXCIE0) "];
+//        }
+//        already=TRUE;
+//    }
+//    if (already) outputText = [outputText stringByAppendingString:@");\n\n"];
  
-    
-    
     
     outputText = [outputText stringByAppendingString:LINE5];
     outputText = [outputText stringByAppendingString:INIT_END];
@@ -264,28 +282,11 @@
 - (IBAction)rxEnabled:(id)sender
 {
     [self updateConfigs];
-    
-    /*
-    
-        UBRR0H = 0;
-        UBRR0L = 207;
-        UCSR0A |= (_BV(U2X0));
-        
-        UCSR0C = _BV(UCSZ00) | _BV(UCSZ01); // Use 8 bit character sizes
-        UCSR0B |= _BV(TXEN0) | _BV(RXEN0) | _BV(RXCIE0); // Enable TX and RX
-    }
-    ISR(USART0_RX_vect)
-    {
-            //Receive interrupt routine
-    }
-     */
-
 }
 
 
 - (IBAction)shareButtonPressed:(id)sender
 {
-    
     NSArray *activityItems = @[[NSURL URLWithString:@"http://bit.ly/prathamapp"]];
     NSMutableArray *customActivities = [[NSMutableArray alloc] init];
     UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:customActivities];

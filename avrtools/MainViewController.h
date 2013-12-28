@@ -31,6 +31,7 @@
 @property (strong, nonatomic) IBOutlet UISwitch *txEnable;
 @property (strong, nonatomic) IBOutlet UISwitch *rxInterrupt;
 @property (strong, nonatomic) IBOutlet UISwitch *txInterrupt;
+@property (strong, nonatomic) IBOutlet UIView *outputContainerView;
 
 
 - (IBAction)moreButtonPressed:(id)sender;

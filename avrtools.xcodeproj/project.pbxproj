@@ -23,6 +23,7 @@
 		7D19D7CC186C7CE30024F91B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D19D7CB186C7CE30024F91B /* Images.xcassets */; };
 		7D19D7CF186CAC070024F91B /* arrow-up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D19D7CD186CAC070024F91B /* arrow-up@2x.png */; };
 		7D19D7D0186CAC070024F91B /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D19D7CE186CAC070024F91B /* arrow@2x.png */; };
+		7D2924CD186EEA9E00798F85 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D2924CC186EEA9E00798F85 /* logo@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		7D19D7CB186C7CE30024F91B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = SOURCE_ROOT; };
 		7D19D7CD186CAC070024F91B /* arrow-up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-up@2x.png"; sourceTree = "<group>"; };
 		7D19D7CE186CAC070024F91B /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@2x.png"; sourceTree = "<group>"; };
+		7D2924CC186EEA9E00798F85 /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 		7D19D7C4186C79120024F91B /* images */ = {
 			isa = PBXGroup;
 			children = (
+				7D2924CC186EEA9E00798F85 /* logo@2x.png */,
 				7D19D7CD186CAC070024F91B /* arrow-up@2x.png */,
 				7D19D7CE186CAC070024F91B /* arrow@2x.png */,
 				7D19D7C9186C7AD00024F91B /* textbox_bg@2x.png */,
@@ -231,6 +234,7 @@
 				7D19D7CC186C7CE30024F91B /* Images.xcassets in Resources */,
 				7D19D7D0186CAC070024F91B /* arrow@2x.png in Resources */,
 				7D19D799186B62AE0024F91B /* InfoPlist.strings in Resources */,
+				7D2924CD186EEA9E00798F85 /* logo@2x.png in Resources */,
 				7D19D7C1186B63770024F91B /* MainViewController.xib in Resources */,
 				7D19D7CF186CAC070024F91B /* arrow-up@2x.png in Resources */,
 			);
