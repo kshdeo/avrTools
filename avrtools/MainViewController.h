@@ -13,7 +13,7 @@
     NSArray *baudArray;
     NSArray *frequencyArray;
     BOOL up;
-    NSInteger baudI;
+    int baudI;
     double baudF;
     BOOL uartDoubleSpeed;
 }
@@ -32,12 +32,17 @@
 @property (strong, nonatomic) IBOutlet UISwitch *rxInterrupt;
 @property (strong, nonatomic) IBOutlet UISwitch *txInterrupt;
 @property (strong, nonatomic) IBOutlet UIView *outputContainerView;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *modeSegmentControl;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *paritySegmentControl;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *stopbitSegmentControl;
 
 
 - (IBAction)moreButtonPressed:(id)sender;
 - (IBAction)clockFrequencyChanged:(id)sender;
 - (IBAction)baudRateChanged:(id)sender;
 - (IBAction)rxEnabled:(id)sender;
+- (IBAction)segmentControlChanged:(id)sender;
+
 - (IBAction)shareButtonPressed:(id)sender;
 
 @end
