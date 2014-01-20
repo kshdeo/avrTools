@@ -7,11 +7,12 @@
 //
 
 #import "MainViewController.h"
+#import "AboutViewController.h"
 
-#define IPHONE5_FRAME_DOWN CGRectMake(0, 452, 320, 263)
+#define IPHONE5_FRAME_DOWN CGRectMake(0, 422, 320, 263)
 #define IPHONE5_FRAME_UP CGRectMake(0, 300, 320, 268)
-#define IPHONE4_FRAME_DOWN
-#define IPHONE4_FRAME_UP
+#define IPHONE4_FRAME_DOWN CGRectMake(0, 422, 320, 263)
+#define IPHONE4_FRAME_UP CGRectMake(0, 300, 320, 268)
 
 
 @implementation MainViewController
@@ -28,6 +29,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.navigationItem.rightBarButtonItem = self.shareButton;
+    self.navigationItem.leftBarButtonItem = self.infoButton;
+    self.title = @"USART config tool";
     
     up=TRUE;
     uartDoubleSpeed=FALSE;
@@ -339,6 +344,13 @@
 - (IBAction)segmentControlChanged:(id)sender
 {
     [self updateConfigs];
+}
+
+
+- (IBAction)infoPressed:(id)sender
+{
+    AboutViewController *aboutVC = [[AboutViewController alloc] init];
+    [self.navigationController pushViewController:aboutVC animated:YES];
 }
 
 

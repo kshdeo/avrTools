@@ -24,6 +24,8 @@
 		7D19D7CF186CAC070024F91B /* arrow-up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D19D7CD186CAC070024F91B /* arrow-up@2x.png */; };
 		7D19D7D0186CAC070024F91B /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D19D7CE186CAC070024F91B /* arrow@2x.png */; };
 		7D2924CD186EEA9E00798F85 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D2924CC186EEA9E00798F85 /* logo@2x.png */; };
+		7DB16F9618743F3600F9CB49 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB16F9418743F3600F9CB49 /* AboutViewController.m */; };
+		7DB16F9718743F3600F9CB49 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DB16F9518743F3600F9CB49 /* AboutViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,9 @@
 		7D19D7CD186CAC070024F91B /* arrow-up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-up@2x.png"; sourceTree = "<group>"; };
 		7D19D7CE186CAC070024F91B /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@2x.png"; sourceTree = "<group>"; };
 		7D2924CC186EEA9E00798F85 /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
+		7DB16F9318743F3600F9CB49 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		7DB16F9418743F3600F9CB49 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		7DB16F9518743F3600F9CB49 /* AboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +128,9 @@
 				7D19D7BD186B63770024F91B /* MainViewController.h */,
 				7D19D7BE186B63770024F91B /* MainViewController.m */,
 				7D19D7BF186B63770024F91B /* MainViewController.xib */,
+				7DB16F9318743F3600F9CB49 /* AboutViewController.h */,
+				7DB16F9418743F3600F9CB49 /* AboutViewController.m */,
+				7DB16F9518743F3600F9CB49 /* AboutViewController.xib */,
 				7D19D7CB186C7CE30024F91B /* Images.xcassets */,
 				7D19D7C4186C79120024F91B /* images */,
 				7D19D795186B62AE0024F91B /* Supporting Files */,
@@ -232,6 +240,7 @@
 			files = (
 				7D19D7CA186C7AD00024F91B /* textbox_bg@2x.png in Resources */,
 				7D19D7CC186C7CE30024F91B /* Images.xcassets in Resources */,
+				7DB16F9718743F3600F9CB49 /* AboutViewController.xib in Resources */,
 				7D19D7D0186CAC070024F91B /* arrow@2x.png in Resources */,
 				7D19D799186B62AE0024F91B /* InfoPlist.strings in Resources */,
 				7D2924CD186EEA9E00798F85 /* logo@2x.png in Resources */,
@@ -256,6 +265,7 @@
 			files = (
 				7D19D79F186B62AE0024F91B /* AppDelegate.m in Sources */,
 				7D19D7C0186B63770024F91B /* MainViewController.m in Sources */,
+				7DB16F9618743F3600F9CB49 /* AboutViewController.m in Sources */,
 				7D19D79B186B62AE0024F91B /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

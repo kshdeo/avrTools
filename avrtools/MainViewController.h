@@ -19,6 +19,11 @@
 }
 
 
+
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *shareButton;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *infoButton;
+
+@property (strong, nonatomic) IBOutlet UINavigationBar *navBar;
 @property (strong, nonatomic) IBOutlet UISlider *clockFrequencySlider;
 @property (strong, nonatomic) IBOutlet UITextField *clockTextBox;
 @property (strong, nonatomic) IBOutlet UITextField *baudRateTextBox;
@@ -42,6 +47,7 @@
 - (IBAction)baudRateChanged:(id)sender;
 - (IBAction)rxEnabled:(id)sender;
 - (IBAction)segmentControlChanged:(id)sender;
+- (IBAction)infoPressed:(id)sender;
 
 - (IBAction)shareButtonPressed:(id)sender;
 

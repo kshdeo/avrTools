@@ -14,11 +14,12 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
     [self.window makeKeyAndVisible];
     
     MainViewController *mainVC = [[MainViewController alloc] init];
-    self.window.rootViewController = mainVC;
+    UINavigationController *navC = [[UINavigationController alloc] initWithRootViewController:mainVC];
+    navC.navigationBar.tintColor = [UIColor colorWithRed:(17.0/255.0) green:(158.0/255.0) blue:(162.0/255.0) alpha:1.0];
+    self.window.rootViewController = navC;
     
     return YES;
 }
