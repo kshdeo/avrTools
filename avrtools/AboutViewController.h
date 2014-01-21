@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
 
-@interface AboutViewController : UIViewController
+@interface AboutViewController : UIViewController<MFMailComposeViewControllerDelegate>
+{
+
+}
+
+- (IBAction)rateAppClicked:(id)sender;
+- (IBAction)feedbackPressed:(id)sender;
 
 @end
