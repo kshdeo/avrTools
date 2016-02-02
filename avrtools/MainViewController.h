@@ -20,26 +20,26 @@
 
 
 
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *shareButton;
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *infoButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *shareButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *infoButton;
 
-@property (strong, nonatomic) IBOutlet UINavigationBar *navBar;
-@property (strong, nonatomic) IBOutlet UISlider *clockFrequencySlider;
-@property (strong, nonatomic) IBOutlet UITextField *clockTextBox;
-@property (strong, nonatomic) IBOutlet UITextField *baudRateTextBox;
-@property (strong, nonatomic) IBOutlet UISlider *baudRateSlider;
-@property (strong, nonatomic) IBOutlet UILabel *errorLabel;
-@property (strong, nonatomic) IBOutlet UITextView *outputView;
-@property (strong, nonatomic) IBOutlet UIButton *moreButton;
-@property (strong, nonatomic) IBOutlet UIImageView *backgroundImage;
-@property (strong, nonatomic) IBOutlet UISwitch *rxEnable;
-@property (strong, nonatomic) IBOutlet UISwitch *txEnable;
-@property (strong, nonatomic) IBOutlet UISwitch *rxInterrupt;
-@property (strong, nonatomic) IBOutlet UISwitch *txInterrupt;
-@property (strong, nonatomic) IBOutlet UIView *outputContainerView;
-@property (strong, nonatomic) IBOutlet UISegmentedControl *modeSegmentControl;
-@property (strong, nonatomic) IBOutlet UISegmentedControl *paritySegmentControl;
-@property (strong, nonatomic) IBOutlet UISegmentedControl *stopbitSegmentControl;
+@property (weak, nonatomic) IBOutlet UINavigationBar *navBar;
+@property (weak, nonatomic) IBOutlet UISlider *clockFrequencySlider;
+@property (weak, nonatomic) IBOutlet UITextField *clockTextBox;
+@property (weak, nonatomic) IBOutlet UITextField *baudRateTextBox;
+@property (weak, nonatomic) IBOutlet UISlider *baudRateSlider;
+@property (weak, nonatomic) IBOutlet UILabel *errorLabel;
+@property (weak, nonatomic) IBOutlet UITextView *outputView;
+@property (weak, nonatomic) IBOutlet UIButton *moreButton;
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
+@property (weak, nonatomic) IBOutlet UISwitch *rxEnable;
+@property (weak, nonatomic) IBOutlet UISwitch *txEnable;
+@property (weak, nonatomic) IBOutlet UISwitch *rxInterrupt;
+@property (weak, nonatomic) IBOutlet UISwitch *txInterrupt;
+@property (weak, nonatomic) IBOutlet UIView *outputContainerView;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *modeSegmentControl;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *paritySegmentControl;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *stopbitSegmentControl;
 
 
 - (IBAction)moreButtonPressed:(id)sender;
